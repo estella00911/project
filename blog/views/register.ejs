@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('template/head') %>
+  </head>
+
+  <body>
+    <div class='login__body-bg'>
+      <div class='login__board'>
+        <div class='login__pannel'>
+          <div class='input__style'>
+            <div class='icon__user'></div>
+          </div>
+          <form action='/register' method='POST'>
+            <div class='input__style'>
+              <div class='login__icon-style-1 icon__username'></div>
+              <input type='text' name='username' placeholder='username' class='login__input-type-text'></input>
+            </div>
+            <div class='input__style'>
+              <div class='login__icon-style-1 icon__password'></div>
+              <input type='password' name='password' placeholder='password' class='login__input-type-text'></input>
+            </div>
+            <h2 class="error"><%= errorMessage %></h2>
+            <div class='input__style login__btn-submit-style'><img class='login__icon-style-2'
+                src='/public/images/icons_func/login.svg'><input type='submit' value='Register'class='login__btn-submit'></input>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <%- include('template/footer') %>
+  </body>
+
+</html>
