@@ -4,14 +4,14 @@
   require_once('utils.php');
 
   $admin = NULL;
-  $admin_user = 'admin';
+  $admin_status = 'admin';
   $username = NULL;
   $user = NULL;
   if (!empty($_SESSION['username'])) {
     $username = $_SESSION['username'];
     $user = getUserFromUsername($username);
-    if ($username == $admin_user) {  // 若為管理員，就有權利編輯、刪除所有人的留言
-      $admin = $admin_user;
+    if ($username == $admin_status) {  // 若為管理員，就有權利編輯、刪除所有人的留言
+      $admin = $admin_status;
     } else {
       header("Location: index.php");
     }

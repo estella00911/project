@@ -446,7 +446,9 @@ table.tb__users tbody td {
   .board__btn {
     float: none;
     padding: 10px;
-    margin: auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
   }
 
   .board {
