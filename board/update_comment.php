@@ -39,7 +39,7 @@
 
 <body>
   <div class='warning'>
-    <strong><header>注意！本站為練習用網站，註冊時請勿使用任何真實的帳號或密碼。</header></strong>
+    <strong><header>注意！本站為練習用網站，因教學用途刻意忽略資安的實作，註冊時請勿使用任何真實的帳號或密碼。</header></strong>
   </div>
   <main>
     <div class='board__navbar'>
@@ -99,7 +99,11 @@
   <script>
     document.querySelector('.board').addEventListener('click', (e) => {
       if (e.target.classList.contains('board__showEdit-btn')) {
-        e.target.nextElementSibling.classList.toggle('hide');
+        e.target.nextElementSibling.firstChild.nextElementSibling.classList.toggle('hide');
+      }
+      let targetShowNickname = e.target.previousElementSibling;
+      if(e.target.previousElementSibling.classList.contains('bg-color')) {
+        targetShowNickname.classList.toggle('ellipsis');
       }
     })
   </script>

@@ -100,7 +100,7 @@
               <td><a class='board__edit-btn' href='handle_suspend.php?id=<?php echo escape($row['id'])?>'>suspend</a></td>
               <!-- original: 1 true=  「不能留言」要改成「可以留言」 -->
               <?php } else { ?>　
-              <td><a class='board__edit-btn' href='handle_message_permission.php?id=<?php echo escape($row['id'])?>'>allow</a></td>
+              <td><a class='board__edit-btn' href='handle_suspend.php?id=<?php echo escape($row['id'])?>'>allow</a></td>
               <?php } ?>
             </tr>
             <?php } ?>

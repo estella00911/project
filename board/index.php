@@ -77,7 +77,7 @@
 
 <body>
   <div class='warning'>
-    <strong><header>注意！本站為練習用網站，註冊時請勿使用任何真實的帳號或密碼。</header></strong>
+    <strong><header>注意！本站為練習用網站，因教學用途刻意忽略資安的實作，註冊時請勿使用任何真實的帳號或密碼。</header></strong>
   </div>
   <main>
     <div class='board__navbar'>
@@ -96,7 +96,7 @@
     <h1>Comment</h1>
     <?php if ($username) { ?>
     <div class='board__input-row'>
-      <span class='bg-color'>Hello! <?php echo escape($user['nickname']); ?></span>
+      <span class='bg-color ellipsis'>Hello! <?php echo escape($user['nickname']); ?></span>
       <a class='board__btn board__showEdit-btn'>edit</a>
       <div>
         <form method='POST' class='board__new-nickname-form hide' action='handle_update_user.php'>
@@ -202,6 +202,10 @@
     document.querySelector('.board').addEventListener('click', (e) => {
       if (e.target.classList.contains('board__showEdit-btn')) {
         e.target.nextElementSibling.firstChild.nextElementSibling.classList.toggle('hide');
+      }
+      let targetShowNickname = e.target.previousElementSibling;
+      if(e.target.previousElementSibling.classList.contains('bg-color')) {
+        targetShowNickname.classList.toggle('ellipsis');
       }
     })
   </script>
