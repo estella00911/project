@@ -1,0 +1,48 @@
+  <nav>
+    <div class='navbar'>
+      <ul>
+        <li class='navbar__list navbar__style'><a href='/'>Home</a></li>
+        <li class='navbar__list navbar__style'><a href='/'>Blog</a></li>
+        <li class='navbar__list navbar__style'><a href='/list-articles'>Archives</a></li>
+        <li class='navbar__list navbar__style'><a href='#'>Category</a></li>
+        <li class='navbar__list navbar__style'><a href='#'>About</a></li>
+      </ul>
+      <ul>
+        <li class='navbar__social-media navbar__style'>
+          <a href="#"><div class='icon__nav-style icon__twitter'></div></a>
+        </li>
+        <li class='navbar__social-media navbar__style'>
+          <a href="#"><div class='icon__nav-style icon__facebook'></div></a>
+        </li>
+        <li class='navbar__social-media navbar__style'>
+          <a href=""><div class='icon__nav-style icon__linkedin'></div></a>
+        </li>
+        <li class='navbar__social-media navbar__style'>
+          <a href="https://github.com/estella00911"><div class='icon__nav-style icon__github'></div></a>
+        </li>
+        
+      </ul>
+    </div>
+    <div class='navbar__admin'>
+      <ul>
+        <%if (!username) { %>
+          <li class='navbar__blog-control navbar__style'><a href='/login'><img class='icon__nav-style'
+              src='/public/images/icons_func/login.svg'>Login</a></li>
+        <% } %>
+        <%if (username) { %>
+        <li class='navbar__blog-control navbar__style'><a href='/register'><img class='icon__nav-style'
+              src='/public/images/icons_func/login.svg'>Register</a></li>
+          <li class='navbar__blog-control navbar__style'><a href='/logout'><img class='icon__nav-style'
+              src='/public/images/icons_func/logout.svg'>Logout</a></li>
+        <% } %>
+        <%if (username) { %>
+        <li class='navbar__blog-control navbar__style'><a href='/add-article'><img class='icon__nav-style'
+              src='/public/images/icons_func/plus.svg'>New Post</a></li> 
+        <% } %>
+        <% if (username === 'admin') { %>
+        <li class='navbar__blog-control navbar__style'><a href='/blog-admin'><img class='icon__nav-style'
+              src='/public/images/icons_func/user.svg'>Admin</a></li>
+        <% } %>
+      </ul>
+    </div>
+  </nav>

@@ -12,7 +12,7 @@
 
 <body>
   <div class='warning'>
-    <strong><header>注意！本站為練習用網站，因教學用途刻意忽略資安的實作，註冊時請勿使用任何真實的帳號或密碼。</header></strong>
+    <strong><header>注意！本站為練習用網站，註冊時請勿使用任何真實的帳號或密碼。</header></strong>
   </div>
   <main>
     <div class='board__navbar'>

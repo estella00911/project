@@ -99,7 +99,11 @@
   <script>
     document.querySelector('.board').addEventListener('click', (e) => {
       if (e.target.classList.contains('board__showEdit-btn')) {
-        e.target.nextElementSibling.classList.toggle('hide');
+        e.target.nextElementSibling.firstChild.nextElementSibling.classList.toggle('hide');
+      }
+      let targetShowNickname = e.target.previousElementSibling;
+      if(e.target.previousElementSibling.classList.contains('bg-color')) {
+        targetShowNickname.classList.toggle('ellipsis');
       }
     })
   </script>

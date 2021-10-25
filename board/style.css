@@ -38,7 +38,6 @@ body {
 
 .board__btn {
   display: inline-block;
-  float: right;
   text-decoration: none;
   color: #003366;
   background: #99ccff;
@@ -108,9 +107,6 @@ body {
   font-weight: 700;
   color: #003366;
   width: 80%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .board__input {
@@ -241,7 +237,6 @@ a.card__btn {
 
 .pagi__btn-leftArrow,
 .pagi__btn-rightArrow {
-  /* width: 160px; */
   display: flex;
   align-items: center;
   border: #003266 1px solid;
@@ -324,7 +319,7 @@ table.tb__users tbody td {
 .ellipsis {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   overflow: hidden;
 }
 
@@ -357,12 +352,8 @@ table.tb__users tbody td {
   .wrapper {
     width: 80%;
   }
-  /* .board {
-    width: 85%;
-  } */
+
   .pagi__btn-rightArrow {
-    /* align-items: center; */
-    /* flex-direction: column; */
     padding: 5px;
     transform: translate(50px);
   }
@@ -388,10 +379,11 @@ table.tb__users tbody td {
     display: grid;
   }
 
-  tr > th {
-    display
-  }
-  table.tb__users tbody td  {
+  /* tr > th {
+    /* display:block
+  } */
+
+  table.tb__users tbody td {
     text-align: left;
   }
 
@@ -400,24 +392,23 @@ table.tb__users tbody td {
   }
   tr > td:nth-child(1)::before {
     font-size: 14px;
-    content: 'id: ';
+    content: "id: ";
   }
   tr > td:nth-child(2)::before {
-    content: 'username: ';
+    content: "username: ";
     font-size: 14px;
-
   }
   tr > td:nth-child(3)::before {
     font-size: 14px;
-    content: 'nickname: ';
+    content: "nickname: ";
   }
   tr > td:nth-child(4)::before {
     font-size: 14px;
-    content: 'status: ';
+    content: "status: ";
   }
   tr > td:nth-child(5)::before {
     font-size: 14px;
-    content: 'permission: ';
+    content: "permission: ";
   }
   .pagi__btn-rightArrow {
     align-items: center;
@@ -446,7 +437,9 @@ table.tb__users tbody td {
   .board__btn {
     float: none;
     padding: 10px;
-    margin: auto;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
   }
 
   .board {

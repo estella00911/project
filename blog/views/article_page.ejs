@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('template/head') %>
+  </head>
+  <body>
+    <%- include('template/nav') %>
+    <main>
+    <%- include('template/banner') %>  
+    <section class='section__posts wrapper font-Serif-TC'>
+      <div class='article__lists'>
+        <div class='article__post-blogPage'>
+          <!-- article__post  -->
+          <div class='article__photo-blogPage' style="background-image:url('<%= article.imageUrl %>'"></div>
+          <div class='article__body'>
+            <div class='article__info'>
+              <div class='article__time-block'>
+                <div class='icon__post-style icon__clock'></div>
+                <div class='article__date font-Merri'><%= moment(article.createdAt).format(shortDateFormat) %></div>
+              </div>
+              <div class='article__category-block'>
+                <div class='icon__post-style icon__folder'></div>
+                <div class='article__category'><%= article.category%></div>
+              </div>
+            </div>
+            <div class='article__title'><%= article.title %></div>
+            <div class='article__content'><%- article.content%></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <%- include('template/footer') %>
+</body>
+
+</html>

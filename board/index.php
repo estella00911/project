@@ -11,6 +11,9 @@
   if (!empty($_SESSION['username'])) {
     $username = $_SESSION['username'];
     $user = getUserFromUsername($username);
+    if ($username == $admin_status) {  // 若為管理員，就有權利編輯、刪除所有人的留言
+      $admin = $admin_status;
+    }
   }
 
   if ($username == $admin_status) {
@@ -93,7 +96,7 @@
     <h1>Comment</h1>
     <?php if ($username) { ?>
     <div class='board__input-row'>
-      <span class='bg-color'>Hello! <?php echo escape($user['nickname']); ?></span>
+      <span class='bg-color ellipsis'>Hello! <?php echo escape($user['nickname']); ?></span>
       <a class='board__btn board__showEdit-btn'>edit</a>
       <div>
         <form method='POST' class='board__new-nickname-form hide' action='handle_update_user.php'>
@@ -199,6 +202,10 @@
     document.querySelector('.board').addEventListener('click', (e) => {
       if (e.target.classList.contains('board__showEdit-btn')) {
         e.target.nextElementSibling.firstChild.nextElementSibling.classList.toggle('hide');
+      }
+      let targetShowNickname = e.target.previousElementSibling;
+      if(e.target.previousElementSibling.classList.contains('bg-color')) {
+        targetShowNickname.classList.toggle('ellipsis');
       }
     })
   </script>
