@@ -1,0 +1,388 @@
+// font-size, font-family, picture-path
+@import '_base';
+
+// icon-file, mixin(background-image)
+@import '_component';
+
+// navbar, site, footer
+@import '_layout';
+
+// mixin, extend
+@import '_mixin';
+
+
+// others
+
+// index.php
+.article {
+	&__lists {
+		padding: 0 0 20px 0;
+	}
+
+	&__post {
+		align-items: center;
+		padding: 30px 23%;
+		position: relative;
+		@include breakpoint(mobile) {
+	    flex-direction: column;
+	    position:inherit;
+	    padding: 30px 5%;
+			display: flex;
+		}
+	}
+	
+	&__list {
+		cursor: pointer;
+	}
+
+	&__body {
+		@include breakpoint(pad) {
+			display: contents;
+		}
+		margin: 5px 0 5px 0;
+	}
+	&__board {
+		display: flex;
+		align-items: center;
+		padding: 0 20%;
+	}
+
+	&__photo {
+		border-radius: 50%;
+		@include image-size(100px, 100px);
+		margin: 0 20px 0 0;
+		// @include background-image($path-rel-bg,'post_avignon.jpg');
+		background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+	}
+	&__time-block, &__category-block {
+		display:flex;
+		@include breakpoint(mobile) {
+	    margin: 5px;
+		}
+	}
+	&__info {
+		display: flex;
+		align-items: center;
+		font-size: $fontSize__article-minor-text;
+		color: $article__minor-text;
+		font-weight: 700;
+		padding: 5px 0;
+		@include breakpoint(mobile) {
+			display: contents;
+		}
+	}
+
+	&__title {
+		font-size: $fontSize__article-title;
+		font-family: $font-article-title;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-claamp: 1;
+		overflow: hidden;
+		word-break: break-word;
+		@include breakpoint(mobile) {
+			text-align: center;
+		}
+	}
+
+	&__content {
+		font-size: $fontSize__article-main-text;
+		margin: 5px 0 0 0;
+		line-height: 1.3;
+	}
+
+	&__dividing-line {
+    width: 75%;
+    height: 3px;
+    background: $dividing-line;
+    margin: 0 auto;
+
+		&:last-child {
+			display:none;
+		}
+	}
+
+	&__category {
+		margin: 0 0 0 5px;
+	}
+	
+	&__date {
+		margin: 0 0 0 5px;
+	}
+	&__btn-position {
+		position: absolute;
+		left: 75%;
+    top: 50%;
+		transform: translate(50%);
+		@include breakpoint(mobile) {
+	    position: inherit;
+		  left: 0;
+		  transform: inherit;
+		  display: flex;
+		}
+	}
+
+	&__list-article {
+		top: 30%;
+	}
+	&__btn-style {
+		color: black;
+		text-decoration: none;
+	}
+
+	/*blog_page.php*/
+	&__post-blogPage { 
+		display: block;
+		padding: 30px 24%;
+		@include breakpoint(mobile) {
+			padding: 30px 5%;
+		}
+		@include breakpoint(pad) {
+			padding: 30px 10%;
+		}
+	}
+
+	&__photo-blogPage { 
+		// @include background-image($path-rel-bg,'post_avignon.jpg');
+    height: 120px;
+    margin: 15px auto;
+    min-width: 80px;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+	}
+
+	/*list-admin.php*/
+	&__info-block {
+    display: flex;
+    @include breakpoint(pc) {
+      flex-direction: column;
+    }
+    @include breakpoint(pad) {
+      flex-direction: column;
+    }
+    @include breakpoint(mobile) {
+      align-items: center;
+      flex-direction: column;
+    }
+	}
+	&__body-admin {
+		display:  flex;
+		width: 100%;
+		align-items: center;
+		@include breakpoint(mobile) {
+			flex-direction: column;
+			width: 90%
+		}
+	}
+
+	&__title-admin {
+		flex: 3;
+	}
+
+	&__date-admin {
+		flex: 1.5;
+	}
+	&__catelog-admin, &__date-admin {
+		display: flex;
+	}
+
+	&__photo-admin {
+		@include image-size(50px, 50px);
+	}
+}
+
+
+// blog-page.php
+p {
+	line-height: 1.6;
+
+	& ~ p {
+		padding-top: $fontSize__article-main-text;
+	}
+}
+
+/* newpage: blog-Edit.php */
+%newPost-input-style {
+	width: 100%;
+	border: transparent;
+	border-bottom: 2px solid black;
+	margin: 0 0 20px 0;
+	padding: 10px;
+}
+
+.newPost {
+  &_board {
+		display: block;
+		padding: 30px 24% 200px 24%;
+		@include breakpoint(mobile) {
+	    padding: 5% 5% 100px 5%;
+		}
+	}
+
+	&__newPost-form {
+		position: relative;
+	}
+
+	&__site-name {
+		display: flex;
+		justify-content: center;
+		margin: 0 0 20px 0;
+	}
+
+	&__add-title {
+		@extend %newPost-input-style;
+	}
+	&__category {
+		display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+	}
+
+	&__btn-category {
+		background: #f9f1f0;
+    border: 2px solid #f8c1bb;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+	}
+
+	&__select-option {
+		@extend %newPost-input-style;
+	}
+
+	&__icon-style { /*login*/
+		@include image-size(45px);
+		cursor: pointer;  
+	}
+
+	&__btn-submit-text {
+		background: transparent;
+		border: none;
+		cursor: pointer;
+	}
+
+	&__btn-submit {
+		background: $btn-light-pink;
+		border: 2px solid $btn-medium-pink;
+		border-radius: 10px;
+		padding: 0 20px;
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%, 50%);
+		display: flex;
+    align-items: center;
+    justify-content: center;
+	}
+
+	&__select-option {
+		width: 100%;
+    border: transparent;
+    border-bottom: 2px solid black;
+    margin: 0 0 20px 0;
+    padding: 10px;
+	}
+}
+
+.ck-editor__editable_inline {
+	min-height: 300px;
+}
+
+.ellipsis {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+}
+
+// login.php
+.input__style {
+	display: flex;
+  align-items: center;
+  padding: 20px 0;
+  justify-content: center;
+}
+
+.login {
+	&__board {
+		height: 500px;
+		width: 400px;
+		background: $transparent-white;
+		margin: 6% auto;
+		border-radius: 5%;
+		position: relative;
+		@include breakpoint(mobile) {
+  		width: 95%;
+  	}
+	}
+
+	&__body-bg {
+		@include background-image($path-rel-bg,'door.jpg');
+		font-family: $font-article-En-Num;
+		margin: 0;
+		padding: 3% 0%;
+	}
+
+	&__icon-style-1 {
+		@include image-size(40px, 40px);
+		margin: 0 10px 0 0;
+	}
+
+	&__pannel {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	&__input-type-text {
+		padding: 5px;
+		border: solid 3px;
+		border-color: transparent;
+		border-bottom-color: $btn-dark-pink;
+		background: transparent;
+	}
+	
+	&__input-type-text::placeholder {
+		color: grey;
+	}
+
+	&__btn-submit {
+		background: transparent;
+		border: none;
+	}
+
+	&__btn-submit-style {
+		background: $btn-light-pink;
+		border: 2px solid $btn-medium-pink;
+		border-radius: 10px;
+		padding: 0 20px;
+		position: absolute;
+		left: 50%;
+		bottom: -20%;
+		transform: translate(-50%, -10%);
+		cursor: pointer;
+	}
+
+	&__icon-style-2 { /*login*/
+		@include image-size(45px, none);
+		cursor: pointer;  
+	}
+}
+
+// error-notification
+.error {
+	font-size: 16px;
+	text-align: center;
+	color: red;
+	margin: 5px;
+}

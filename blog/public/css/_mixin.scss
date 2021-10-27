@@ -1,0 +1,47 @@
+@mixin background-image($path--rel, $img) {
+  background-image: url("#{$path--rel}/#{$img}");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin image-size($size, $min: none) {
+  height: $size;
+  width: $size;
+  min-width: $min;
+}
+
+%btn-pink-style {
+  background: $btn-light-pink;
+  border: 2px solid $btn-medium-pink;
+  border-radius: 10px;
+  padding: 0 20px;
+}
+
+@mixin pagination-position($left-percent) {
+  transform: translate(50%, 0px);
+  left: $left-percent;
+}
+
+@mixin breakpoint($point) {
+  @if $point == pc-xl {
+    @media only screen and (max-width: 1200px) {
+      @content 
+    }
+  }
+  @else if $point == pc-l {
+    @media only screen and (max-width: 1024px)  {
+      @content 
+    }
+  }
+  @else if $point == pad {
+    @media only screen and (max-width: 768px)  {
+      @content 
+    }
+  }
+  @else if $point == mobile { 
+    @media only screen and (max-width: 568px) {
+      @content
+    }
+  }
+}
