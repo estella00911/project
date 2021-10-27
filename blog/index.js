@@ -1,4 +1,4 @@
-require('dotenv').config()
+const dotenv = require('dotenv').config()
 const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
@@ -20,13 +20,13 @@ app.set('view engine', 'ejs')
 app.use('/public', express.static(`${__dirname}/public`))
 
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(flash())
 
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
   secret: SESSION_SECRET,
-  resave: true, // original false
+  resave: true,  // original false
   saveUninitialized: true,
   cookie: { maxAge: 60000 }
 }))
