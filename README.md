@@ -18,8 +18,31 @@ http://project.estella00911.tw/board/index.php
 * 設定、查看、管理資料庫：phpMyAdmin、Sequel Pro
 * Apache server（網頁伺服器）
 ### Demo
-#### 登入
+![](https://github.com/estella00911/project/blob/main/src_demo/board/1_fisrtPage.gif?raw=true)
+#### RWD
+![](https://github.com/estella00911/project/blob/main/src_demo/board/10_RWD.gif?raw=true)
 #### 註冊
+![](https://github.com/estella00911/project/blob/main/src_demo/board/2_register.gif?raw=true)
+#### 登入
+![](https://github.com/estella00911/project/blob/main/src_demo/board/3_login.gif?raw=true)
+#### 會員編輯功能——編輯暱稱、發布留言
+![](https://github.com/estella00911/project/blob/main/src_demo/board/4_editNickAndAddComments.gif?raw=true)
+#### 會員編輯功能——僅能編輯自己的留言
+會員僅可編輯自己的留言，不能隨意編輯他人留言
+![](https://github.com/estella00911/project/blob/main/src_demo/board/5_editOwnNoOthers.gif?raw=true)
+
+#### 會員刪除功能——僅能刪除自己的留言
+會員僅可刪除自己的留言，不可以任意刪除他人留言。
+![](https://github.com/estella00911/project/blob/main/src_demo/board/6_deleteOwnNoOthers.gif?raw=true)
+#### 管理員功能——更改留言的權限
+管理員將會員 abc 權限改為不能發布留言。
+![](https://github.com/estella00911/project/blob/main/src_demo/board/7_adminLoginAndSuspendAbc.gif?raw=true)
+
+#### 被留言停權的使用者 abc
+被留言停權的使用者 abc 不能發布新留言，但可以編輯與刪除舊的留言。
+![](https://github.com/estella00911/project/blob/main/src_demo/board/8_suspendABCandAddEditDelete.gif?raw=true)
+#### 管理員功能——可以任意編輯與刪除會員的留言
+![](https://github.com/estella00911/project/blob/main/src_demo/board/9_adminCanEditDeleteOtherComment.gif?raw=true)
 
 ### 技術
 1. `PHP` 內建 `Session` 機制
