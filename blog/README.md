@@ -1,39 +1,125 @@
-# node-js-getting-started
+# Jean's Project
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+## 部落格
+https://gentle-depths-67267.herokuapp.com/
 
-This application supports the [Getting Started on Heroku with Node.js](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+## 描述
+希望可以做一個自己的部落格，紀錄學習的足跡。
 
-## Running Locally
+## 進度
+正在進行中，預計後續製作以下功能：
+- [ ] 實作分類功能
+- [ ] 實作 view more 功能
+- [ ] 實作分頁機制
+- [ ] 新增關於我頁面
+- [ ] 新增文章分類頁面
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.
+## 功能
+- [x] 登入機制，管理員才可以登入
+     * 帳號：admin
+     * 密碼：admin00911
+- [x] 可以新增、編輯、刪除文章
+- [x] 串接 CKEditor
+- [x] 支援 RWD
 
-```sh
-$ git clone https://github.com/heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
-```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+### 運行環境
+* 後端：Node.js、Express
+* 資料庫：MySQL
+* ORM 框架：Sequelize
 
-## Deploying to Heroku
 
-```
-$ heroku create
-$ git push heroku main
-$ heroku open
-```
-or
+## Demo
+## 首頁
+![](https://github.com/estella00911/project/raw/main/src_demo/blog/2_login_page.png?raw=true)
+## 登入頁面
+![](https://github.com/estella00911/project/raw/main/src_demo/blog/1_landing_page.png?raw=true)
+## 新增文章頁面
+![](https://github.com/estella00911/project/raw/main/src_demo/blog/3_add_article_page.png?raw=true)
+## 管理員角度的首頁（可以點擊文章旁的編輯/刪除按鈕）
+![](https://github.com/estella00911/project/raw/main/src_demo/blog/4_manager_side_landing_page.png?raw=true)
+## 管理員角度的文章列表頁面
+![](https://github.com/estella00911/project/raw/main/src_demo/blog/5_manager_side_list_page.png?raw=true)
+## 單一文章頁面
+![](https://github.com/estella00911/project/raw/main/src_demo/blog/6_single_article_page.png?raw=true)
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-## Documentation
 
-For more information about using Node.js on Heroku, see these Dev Center articles:
+## 技術
+1. `Express`
+2. ORM 框架——`Seqeulize`
+3. `CSS` 預處理器（Scss）
+4. `dotenv` 
+5. `middleware` 做會員是否登入的權限檢查
+6. 
 
-- [Getting Started on Heroku with Node.js](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+## 心得記錄
+1. [部署的過程紀錄](https://www.coderbridge.com/@estella00911/d9062ac8990a4200a2fe53138a843fde)
+2. [部落格及餐廳改寫紀錄](https://hackmd.io/IXFT_PfaR4muyADDRNK1RQ?view)
+
+- [x] 部署到免費空間 heroku
+- [x] 環境變數
+
+
+## 架構
+|-- index.js：路由
+|-- .sequelizerc：變更設定檔位置及名稱，因為加入 `dotenv` 環境變數
+|-- controllers
+&nbsp; &nbsp; &nbsp; &nbsp; |-- user.js
+&nbsp; &nbsp; &nbsp; &nbsp; |-- blog.js
+|-- migrations
+&nbsp; &nbsp; &nbsp; &nbsp; |-- 20210815074507-create-user.js
+&nbsp; &nbsp; &nbsp; &nbsp; |-- 20210816113358-create-article.js
+|-- public
+&nbsp; &nbsp; &nbsp; &nbsp; |-- css：放 scss 檔案
+&nbsp; &nbsp; &nbsp; &nbsp; |-- images：圖片、icon、背景圖
+|-- config
+&nbsp; &nbsp; &nbsp; &nbsp; |-- config.js
+|-- models
+&nbsp; &nbsp; &nbsp; &nbsp; |-- index.js
+&nbsp; &nbsp; &nbsp; &nbsp; |-- user.js
+&nbsp; &nbsp; &nbsp; &nbsp; |-- article.js
+|-- scripts
+&nbsp; &nbsp; &nbsp; &nbsp; |-- click.js：點擊文章列表中的文章，會導到該篇文章內容的 DOM
+|-- views
+&nbsp; &nbsp; &nbsp; &nbsp; |-- ejs 檔案，靜態頁面
+|-- seeders
+
+## 環境變數
+作業中有使用到 [dotenv](https://www.npmjs.com/package/dotenv)，你可以將想要使用的環境變數，加到專案根目錄的 `.env` 中，就會自動被帶入環境變數中。
+
+i. `DB_USERNAME`
+ii. `DB_PASSWORD`
+iii. `DB_PORT`
+iv. `DB_DATABASE`
+v. `SESSION_SECRET`
+
+## 資料庫欄位
+### Articles
+| Field       | Type     | Length | Default | Key | Extra           |
+|-------------|----------|--------|---------|-----|-----------------|
+| id          | INT      | 11     |         | PRI | Auto\_increment |
+| title       | VARCHAR  | 255    |         |     |                 |
+| Category    | VARCHAR  | 255    |         |     |                 |
+| Content     | TEXT     |        |         |     |                 |
+| is\_deleted | TINYINT  | 1      |         |     |                 |
+| createdAt   | DATETIME |        |         |     |                 |
+| updatedAt   | DATETIME |        |         |     |                 |
+| UserId      | INT      | 11     |         |     |                 |
+| imageUrl    | VARCHAR  |        |         |     |                 |
+### users
+| Field                | Type     | Length | Default            | Key | Extra           |
+|----------------------|----------|--------|--------------------|-----|-----------------|
+| id                   | INT      | 11     |                    | PRI | auto\_increment |
+| Username             | VARCHAR  | 64     |                    |     |                 |            |
+| password             | VARCHAR  | 128    |                    |     |                 |
+| created\_at          | DATETIME |        | CURRENT\_TIMESTAMP |     |                 |
+
+
+
+
+### 部落格的文章
+<img width="950" alt="截圖 2021-09-07 下午9 36 24" src="https://user-images.githubusercontent.com/75422783/132354248-1b93c94a-fd36-46ef-8a23-3b8f1bf4e5fa.png">
+
+### 餐廳網頁的抽獎項目
+<img width="1120" alt="截圖 2021-09-07 下午9 37 40" src="https://user-images.githubusercontent.com/75422783/132354343-b9d1dc93-5c85-4917-8d23-44780f611d52.png">
