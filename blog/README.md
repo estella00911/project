@@ -31,9 +31,9 @@ https://gentle-depths-67267.herokuapp.com/
 
 ## Demo
 ## 首頁
-![](https://github.com/estella00911/project/raw/main/src_demo/blog/2_login_page.png?raw=true)
-## 登入頁面
 ![](https://github.com/estella00911/project/raw/main/src_demo/blog/1_landing_page.png?raw=true)
+## 登入頁面
+![](https://github.com/estella00911/project/raw/main/src_demo/blog/2_login_page.png?raw=true)
 ## 新增文章頁面
 ![](https://github.com/estella00911/project/raw/main/src_demo/blog/3_add_article_page.png?raw=true)
 ## 管理員角度的首頁（可以點擊文章旁的編輯/刪除按鈕）
@@ -55,7 +55,6 @@ https://gentle-depths-67267.herokuapp.com/
 
 ## 心得記錄
 1. [部署的過程紀錄](https://www.coderbridge.com/@estella00911/d9062ac8990a4200a2fe53138a843fde)
-2. [部落格及餐廳改寫紀錄](https://hackmd.io/IXFT_PfaR4muyADDRNK1RQ?view)
 
 - [x] 部署到免費空間 heroku
 - [x] 環境變數
@@ -114,12 +113,3 @@ v. `SESSION_SECRET`
 | Username             | VARCHAR  | 64     |                    |     |                 |            |
 | password             | VARCHAR  | 128    |                    |     |                 |
 | created\_at          | DATETIME |        | CURRENT\_TIMESTAMP |     |                 |
-
-
-
-
-### 部落格的文章
-<img width="950" alt="截圖 2021-09-07 下午9 36 24" src="https://user-images.githubusercontent.com/75422783/132354248-1b93c94a-fd36-46ef-8a23-3b8f1bf4e5fa.png">
-
-### 餐廳網頁的抽獎項目
-<img width="1120" alt="截圖 2021-09-07 下午9 37 40" src="https://user-images.githubusercontent.com/75422783/132354343-b9d1dc93-5c85-4917-8d23-44780f611d52.png">
