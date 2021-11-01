@@ -5,14 +5,20 @@ const { User } = db
 
 const blogController = {
   homePage: async(req, res) => {
+    let limit = 5; // limit per page = 5;
+    let offset = 0;
+    if (req.query.page) {
+    const { page } = req.query;
+      offset = (parseInt(page)-1)*5;
+    }
     const article = await Article.findAll({
+      offset,
+      limit,
       where: {
         is_deleted: null
       },
       order: [['id', 'DESC']],
       include: User
-      // offset: 5,
-      // limit: 5
     })
     // console.log(JSON.stringify(article,null,4))
     res.render('index', {
@@ -156,6 +162,9 @@ const blogController = {
     } catch (err) {
       console.log(err.toString())
     }
+  },
+  aboutMe: async(req, res) => {
+    res.render('about_me')
   }
 }
 

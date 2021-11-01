@@ -28,6 +28,9 @@
       padding: 30px 5%;
       display: flex;
     }
+    &:last-child {
+      padding: 30px 23% 80px 23%;
+    }
   }
 
   &__list {

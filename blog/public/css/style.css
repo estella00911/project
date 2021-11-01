@@ -379,6 +379,9 @@ ul li a {
     display: flex;
   }
 }
+.article__post:last-child {
+  padding: 30px 23% 80px 23%;
+}
 .article__list {
   cursor: pointer;
 }
