@@ -26,6 +26,10 @@
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sourcemaps": "^3.0.0",
     "http": "0.0.1-security",
     "moment": "^2.29.1",
     "mysql": "^2.18.1",
@@ -33,9 +37,9 @@
     "node-pre-gyp": "^0.17.0",
     "path": "^0.12.7",
     "request": "^2.88.2",
-    "sass": "^1.39.0",
+    "sass": "^1.43.4",
     "sequelize": "^6.6.5",
-    "sequelize-cli": "^6.2.0"
+    "sequelize-cli": "^5.4.0"
   },
   "devDependencies": {
     "gulp": "^4.0.2",

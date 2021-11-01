@@ -72,6 +72,7 @@ app.get('/update-article/:id', checkIsLogin, blogController.pageUpdate)
 app.post('/update-article/:id', checkIsLogin, blogController.update)
 app.get('/list-articles', blogController.list)
 app.get('/blog-admin', checkIsLogin, blogController.blogAdmin)
+app.get('/about-me', blogController.aboutMe)
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

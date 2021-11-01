@@ -143,6 +143,48 @@
   margin: 0 0 0 10px;
 }
 
+html {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  min-height: 100%;
+  padding: 0;
+}
+
+nav {
+  height: 122px;
+}
+@media only screen and (max-width: 568px) {
+  nav {
+    height: 236px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  nav {
+    height: 179px;
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+}
+@media only screen and (max-width: 568px) {
+  footer {
+    height: 100px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  footer {
+    height: 60px;
+  }
+}
+
 /*navbar */
 ul {
   display: flex;
@@ -188,8 +230,8 @@ ul li a {
 }
 .navbar__blog-control {
   border-radius: 10px;
-  border: 1px solid #FADCD9;
-  background: #F9F1F0;
+  border: 1px solid #fadcd9;
+  background: #f9f1f0;
 }
 .navbar__admin {
   display: flex;
@@ -314,7 +356,7 @@ ul li a {
   font-size: 18px;
   padding: 10px 0 10px 0;
   text-align: center;
-  background: #F79489;
+  background: #f79489;
 }
 
 .article {
@@ -598,6 +640,17 @@ p ~ p {
   padding: 20px 0;
   justify-content: center;
 }
+@media only screen and (max-width: 568px) {
+  .input__style {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 10px 0;
+  }
+  .input__style.login__btn-submit-style {
+    flex-direction: row;
+    align-items: center;
+  }
+}
 
 .login__board {
   height: 500px;
@@ -619,7 +672,12 @@ p ~ p {
   background-size: cover;
   font-family: "Merriweather", serif;
   margin: 0;
-  padding: 3% 0%;
+  padding: 3% 0 25% 0;
+}
+@media only screen and (max-width: 1200px) {
+  .login__body-bg {
+    padding: 3% 0 100px 0;
+  }
 }
 .login__icon-style-1 {
   height: 40px;
