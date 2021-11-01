@@ -182,20 +182,20 @@
           <a class='pagi__btn-leftArrow pagi__btn-first hidden' href='index.php'>
             <div class='pagi__img-leftArrow'></div><span>first</span>
           </a>
-          <a class='pagi__btn-leftArrow' href='index.php?page=<?php echo $page-1; ?>'>
+          <a class='pagi__btn-leftArrow' href='index.php?page=<?php echo escape($page-1); ?>'>
             <div class='pagi__img-leftArrow'></div><span>previous</span>
           </a>
         <?php } ?>
         <?php if ($page != $total_page) { ?>
-          <a class='pagi__btn-rightArrow' href='index.php?page=<?php echo $page+1; ?>'>
+          <a class='pagi__btn-rightArrow' href='index.php?page=<?php echo escape($page+1); ?>'>
             <div class='pagi__img-rightArrow'></div><span>next</span>
           </a>
-          <a class='pagi__btn-rightArrow pagi__btn-last hidden' href='index.php?page=<?php echo $total_page; ?>'>
+          <a class='pagi__btn-rightArrow pagi__btn-last hidden' href='index.php?page=<?php echo escape($total_page); ?>'>
             <div class='pagi__img-rightArrow'></div><span>last</span>
           </a>
         <?php } ?>
         </div>
-        <div class='pagi__info'>共有 <?php echo $total_comments; ?> 筆留言，頁數<?php echo ' ' . $page . ' / ' . $total_page; ?></div>
+        <div class='pagi__info'>共有 <?php echo escape($total_comments); ?> 筆留言，頁數<?php echo ' ' . escape($page) . ' / ' . escape($total_page); ?></div>
   </div>
   </main>
   <script>
