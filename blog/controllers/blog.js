@@ -2,27 +2,39 @@ const db = require('../models')
 
 const { Article } = db
 const { User } = db
-
 const blogController = {
   homePage: async(req, res) => {
-    let limit = 5; // limit per page = 5;
+    const ARTICLES_PER_PAGE = 5;
     let offset = 0;
-    if (req.query.page) {
-    const { page } = req.query;
-      offset = (parseInt(page)-1)*5;
-    }
-    const article = await Article.findAll({
+      let currentPage = req.query.page == undefined ? 1 : Number(req.query.page);
+    // if (req.query.page) {
+      // const {page} = await req.query;
+      // let currentPage = Number(page);
+      offset = (parseInt(currentPage)-1)*5;
+    // } else {
+      // let currentPage = 1;
+    // }
+    const articles = await Article.findAndCountAll({
       offset,
-      limit,
+      limit: ARTICLES_PER_PAGE,
       where: {
         is_deleted: null
       },
       order: [['id', 'DESC']],
       include: User
     })
+    let totalPosts = articles.count;
+    let totalPage = Math.ceil(totalPosts/ARTICLES_PER_PAGE)
+    console.log('totalPage:',totalPage);
+    console.log('totalPosts:',totalPosts);
+    console.log('qery.page:', req.query.page);
+    console.log('var pagecurrent:', currentPage);
+    let article = articles.rows;
     // console.log(JSON.stringify(article,null,4))
     res.render('index', {
-      article
+      article,
+      currentPage,
+      totalPage
     })
   },
   pageAdd: (req, res) => {

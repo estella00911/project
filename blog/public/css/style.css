@@ -154,20 +154,6 @@ body {
   padding: 0;
 }
 
-nav {
-  height: 122px;
-}
-@media only screen and (max-width: 568px) {
-  nav {
-    height: 236px;
-  }
-}
-@media only screen and (max-width: 768px) {
-  nav {
-    height: 179px;
-  }
-}
-
 footer {
   position: absolute;
   bottom: 0;
@@ -350,6 +336,12 @@ ul li a {
 .page__icon-last {
   transform: translate(50%, 0px);
   left: 56%;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  height: 150px;
 }
 
 .footer__text {
@@ -635,6 +627,12 @@ p ~ p {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
+  width: 100%;
+}
+@media only screen and (max-width: 568px) {
+  .ellipsis {
+    -webkit-line-clamp: 1;
+  }
 }
 
 .input__style {

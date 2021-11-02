@@ -302,6 +302,10 @@ p {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
+  width:100%;
+  @include breakpoint(mobile) {
+    -webkit-line-clamp: 1;
+  }
 }
 
 // login.php

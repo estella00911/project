@@ -56,7 +56,7 @@ function checkIsLogin(req, res, next) {
   next()
 }
 
-app.get('/', blogController.homePage)
+app.get('', blogController.homePage)
 app.get('/scripts')
 app.get('/login', userController.login)
 app.post('/login', userController.handleLogin)
