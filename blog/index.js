@@ -56,7 +56,7 @@ function checkIsLogin(req, res, next) {
   next()
 }
 
-app.get('/', blogController.homePage)
+app.get('', blogController.homePage)
 app.get('/scripts')
 app.get('/login', userController.login)
 app.post('/login', userController.handleLogin)
@@ -72,6 +72,7 @@ app.get('/update-article/:id', checkIsLogin, blogController.pageUpdate)
 app.post('/update-article/:id', checkIsLogin, blogController.update)
 app.get('/list-articles', blogController.list)
 app.get('/blog-admin', checkIsLogin, blogController.blogAdmin)
+app.get('/about-me', blogController.aboutMe)
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

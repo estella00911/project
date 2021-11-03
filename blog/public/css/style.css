@@ -143,6 +143,34 @@
   margin: 0 0 0 10px;
 }
 
+html {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  min-height: 100%;
+  padding: 0;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+}
+@media only screen and (max-width: 568px) {
+  footer {
+    height: 100px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  footer {
+    height: 60px;
+  }
+}
+
 /*navbar */
 ul {
   display: flex;
@@ -188,8 +216,8 @@ ul li a {
 }
 .navbar__blog-control {
   border-radius: 10px;
-  border: 1px solid #FADCD9;
-  background: #F9F1F0;
+  border: 1px solid #fadcd9;
+  background: #f9f1f0;
 }
 .navbar__admin {
   display: flex;
@@ -310,11 +338,17 @@ ul li a {
   left: 56%;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  height: 150px;
+}
+
 .footer__text {
   font-size: 18px;
   padding: 10px 0 10px 0;
   text-align: center;
-  background: #F79489;
+  background: #f79489;
 }
 
 .article {
@@ -336,6 +370,9 @@ ul li a {
     padding: 30px 5%;
     display: flex;
   }
+}
+.article__post:last-child {
+  padding: 30px 23% 80px 23%;
 }
 .article__list {
   cursor: pointer;
@@ -421,7 +458,7 @@ ul li a {
 .article__btn-position {
   position: absolute;
   left: 75%;
-  top: 40%;
+  top: 50%;
   transform: translate(50%);
 }
 @media only screen and (max-width: 568px) {
@@ -590,6 +627,12 @@ p ~ p {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
+  width: 100%;
+}
+@media only screen and (max-width: 568px) {
+  .ellipsis {
+    -webkit-line-clamp: 1;
+  }
 }
 
 .input__style {
@@ -597,6 +640,17 @@ p ~ p {
   align-items: center;
   padding: 20px 0;
   justify-content: center;
+}
+@media only screen and (max-width: 568px) {
+  .input__style {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 10px 0;
+  }
+  .input__style.login__btn-submit-style {
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 .login__board {
@@ -619,7 +673,12 @@ p ~ p {
   background-size: cover;
   font-family: "Merriweather", serif;
   margin: 0;
-  padding: 3% 0%;
+  padding: 3% 0 25% 0;
+}
+@media only screen and (max-width: 1200px) {
+  .login__body-bg {
+    padding: 3% 0 100px 0;
+  }
 }
 .login__icon-style-1 {
   height: 40px;
@@ -642,6 +701,12 @@ p ~ p {
   border-color: transparent;
   border-bottom-color: #f79489;
   background: transparent;
+}
+.login__input-type-text::-moz-placeholder {
+  color: grey;
+}
+.login__input-type-text:-ms-input-placeholder {
+  color: grey;
 }
 .login__input-type-text::placeholder {
   color: grey;
@@ -675,5 +740,4 @@ p ~ p {
   color: red;
   margin: 5px;
 }
-
 /*# sourceMappingURL=style.css.map */

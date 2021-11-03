@@ -28,6 +28,9 @@
       padding: 30px 5%;
       display: flex;
     }
+    &:last-child {
+      padding: 30px 23% 80px 23%;
+    }
   }
 
   &__list {
@@ -86,7 +89,6 @@
       text-align: center;
     }
   }
-
   &__content {
     font-size: $fontSize__article-main-text;
     margin: 5px 0 0 0;
@@ -114,7 +116,7 @@
   &__btn-position {
     position: absolute;
     left: 75%;
-    top: 40%;
+    top: 50%;
     transform: translate(50%);
     @include breakpoint(mobile) {
       position: inherit;
@@ -299,6 +301,10 @@ p {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
+  width: 100%;
+  @include breakpoint(mobile) {
+    -webkit-line-clamp: 1;
+  }
 }
 
 // login.php
@@ -307,6 +313,16 @@ p {
   align-items: center;
   padding: 20px 0;
   justify-content: center;
+
+  @include breakpoint(mobile) {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 10px 0;
+    &.login__btn-submit-style {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
 }
 
 .login {
@@ -326,7 +342,10 @@ p {
     @include background-image($path-rel-bg, "door.jpg");
     font-family: $font-article-En-Num;
     margin: 0;
-    padding: 3% 0%;
+    padding: 3% 0 25% 0;
+    @include breakpoint(pc-xl) {
+      padding: 3% 0 100px 0;
+    }
   }
 
   &__icon-style-1 {
