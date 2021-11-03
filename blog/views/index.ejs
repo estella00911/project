@@ -65,7 +65,8 @@
               <% } %>
               <% if (Number(currentPage) > 0) { %>
                 <% if (Number(currentPage) < 3 ) { %>
-                  <% for (let i=1; i<= 4; i++) { %>
+                  <% let paginationEnd = totalPage >= 4 ? 4 : totalPage; %>
+                  <% for (let i=1; i<= paginationEnd; i++) { %>
                     <% if (i === Number(currentPage)) { %>
                       <li class="page-item active"><a class="page-link" href="?page=<%= i %>"><%= i %></a></li>
                     <% } else { %>
