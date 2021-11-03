@@ -28,10 +28,12 @@
         <%if (!username) { %>
           <li class='navbar__blog-control navbar__style'><a href='/login'><img class='icon__nav-style'
               src='/public/images/icons_func/login.svg'>Login</a></li>
+          <li class='navbar__blog-control navbar__style'><a href='/register'><img class='icon__nav-style'
+              src='/public/images/icons_func/login.svg'>Register</a></li>
         <% } %>
         <%if (username) { %>
-        <li class='navbar__blog-control navbar__style'><a href='/register'><img class='icon__nav-style'
-              src='/public/images/icons_func/login.svg'>Register</a></li>
+        <!-- <li class='navbar__blog-control navbar__style'><a href='/login'><img class='icon__nav-style'
+              src='/public/images/icons_func/login.svg'>Login</a></li> -->
           <li class='navbar__blog-control navbar__style'><a href='/logout'><img class='icon__nav-style'
               src='/public/images/icons_func/logout.svg'>Logout</a></li>
         <% } %>

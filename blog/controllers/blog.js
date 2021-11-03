@@ -1,19 +1,13 @@
 const db = require('../models')
 
-const { Article } = db
-const { User } = db
+const { Article, User, Category } = db
+
+const ARTICLES_PER_PAGE = 5;
+
 const blogController = {
   homePage: async(req, res) => {
-    const ARTICLES_PER_PAGE = 5;
-    let offset = 0;
-      let currentPage = req.query.page == undefined ? 1 : Number(req.query.page);
-    // if (req.query.page) {
-      // const {page} = await req.query;
-      // let currentPage = Number(page);
-      offset = (parseInt(currentPage)-1)*5;
-    // } else {
-      // let currentPage = 1;
-    // }
+    let currentPage = req.query.page == undefined ? 1 : Number(req.query.page);
+    offset = (parseInt(currentPage)-1)*5;
     const articles = await Article.findAndCountAll({
       offset,
       limit: ARTICLES_PER_PAGE,
@@ -21,16 +15,19 @@ const blogController = {
         is_deleted: null
       },
       order: [['id', 'DESC']],
-      include: User
+      include: [
+        { model: User },
+        { model: Category}
+      ]
     })
     let totalPosts = articles.count;
     let totalPage = Math.ceil(totalPosts/ARTICLES_PER_PAGE)
-    console.log('totalPage:',totalPage);
-    console.log('totalPosts:',totalPosts);
-    console.log('qery.page:', req.query.page);
-    console.log('var pagecurrent:', currentPage);
+    // console.log('totalPage:',totalPage);
+    // console.log('totalPosts:',totalPosts);
+    // console.log('qery.page:', req.query.page);
+    // console.log('var pagecurrent:', currentPage);
     let article = articles.rows;
-    // console.log(JSON.stringify(article,null,4))
+    console.log(JSON.stringify(article,null,4))
     res.render('index', {
       article,
       currentPage,
@@ -144,16 +141,25 @@ const blogController = {
     }
   },
   list: async(req, res) => {
+    let currentPage = req.query.page == undefined ? 1 : Number(req.query.page);
+    offset = (parseInt(currentPage)-1)*5;
     try {
-      const article = await Article.findAll({
+      const articles = await Article.findAndCountAll({
+        offset,
+       limit: ARTICLES_PER_PAGE,
         where: {
           is_deleted: null
         },
         order: [['id', 'DESC']],
         include: User
       })
+      let totalPosts = articles.count;
+      let totalPage = Math.ceil(totalPosts/ARTICLES_PER_PAGE);
+      let article = articles.rows;
       res.render('list_articles', {
-        article
+        article,
+        currentPage,
+        totalPage
       })
     } catch (err) {
       console.log(err.toString())

@@ -6,7 +6,8 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Article extends Model {
     static associate(models) {
-      Article.belongsTo(models.User)
+      Article.belongsTo(models.User);
+      Article.belongsTo(models.Category);
     }
   }
   Article.init({
@@ -15,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
     content: DataTypes.TEXT,
     is_deleted: DataTypes.BOOLEAN,
     UserId: DataTypes.INTEGER,
-    imageUrl: DataTypes.STRING
+    imageUrl: DataTypes.STRING,
+    CategoryId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Article'
