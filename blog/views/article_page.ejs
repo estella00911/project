@@ -20,7 +20,11 @@
               </div>
               <div class='article__category-block'>
                 <div class='icon__post-style icon__folder'></div>
-                <div class='article__category'><%= article.category%></div>
+                <div class='article__category'><%= article.Category.name %></div>
+              </div>
+              <div class='article__info article__author-admin'>
+                <div class='icon__post-style icon__author'></div>
+                <div class='article__category'><%= article.User.username %></div>
               </div>
             </div>
             <div class='article__title'><%= article.title %></div>
@@ -28,6 +32,9 @@
           </div>
         </div>
       </div>
+    </section>
+    <section class=''>
+      
     </section>
   </main>
   <%- include('template/footer') %>

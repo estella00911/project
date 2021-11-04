@@ -83,7 +83,9 @@ const blogController = {
         imageUrl
       }, {
         include: [
-          { model: User }
+          { model: User,
+            attributes:['id', 'username']
+          }
         ]
       })
 
@@ -97,7 +99,15 @@ const blogController = {
       where: {
         id: req.params.id,
         is_deleted: null
-      }
+      },
+      include: [
+        { model: User,
+          attributes:['id', 'username']
+        },
+        { model: Category,
+          attributes:['id', 'name']
+        }
+      ]
     })
 
     res.render('article_page', {

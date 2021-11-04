@@ -1,7 +1,7 @@
 # Jean's Project
 
 ## 部落格
-https://gentle-depths-67267.herokuapp.com/
+[Jean's Blog](https://gentle-depths-67267.herokuapp.com/)
 
 ## 描述
 希望可以做一個自己的部落格，紀錄學習的足跡。
@@ -10,9 +10,10 @@ https://gentle-depths-67267.herokuapp.com/
 正在進行中，預計後續製作以下功能：
 - [ ] 實作分類功能
 - [ ] 實作 view more 功能
-- [ ] 實作分頁機制
+- [x] 實作分頁機制
 - [ ] 新增關於我頁面
 - [ ] 新增文章分類頁面
+- [ ] CKEditor 編輯器，可以撰寫 code block
 
 ## 功能
 - [x] 登入機制，管理員才可以登入
@@ -21,13 +22,13 @@ https://gentle-depths-67267.herokuapp.com/
 - [x] 可以新增、編輯、刪除文章
 - [x] 串接 CKEditor
 - [x] 支援 RWD
-
+- [x] 實作分頁機制
 
 ### 運行環境
 * 後端：Node.js、Express
 * 資料庫：MySQL
 * ORM 框架：Sequelize
-
+* 前端：HTML、CSS、JavaScript
 
 ## Demo
 ## 首頁
@@ -46,18 +47,16 @@ https://gentle-depths-67267.herokuapp.com/
 
 
 ## 技術
-1. `Express`
-2. ORM 框架——`Seqeulize`
+1. Node.js 的框架：`Express`
+2. Node.js ORM 框架 ——`Seqeulize`
 3. `CSS` 預處理器（Scss）
-4. `dotenv` 
-5. `middleware` 做會員是否登入的權限檢查
-6. 
+4. `dotenv` 將敏感資訊放進環境變數
+5. `middleware` ：做會員是否登入的權限檢查
 
 ## 心得記錄
 1. [部署的過程紀錄](https://www.coderbridge.com/@estella00911/d9062ac8990a4200a2fe53138a843fde)
-
-- [x] 部署到免費空間 heroku
-- [x] 環境變數
+- [x] [部署到免費空間 heroku](https://www.coderbridge.com/@estella00911/d9062ac8990a4200a2fe53138a843fde)
+- [x] [環境變數](https://estella00911.coderbridge.io/2021/08/20/dotenv/)
 
 
 ## 架構
@@ -89,9 +88,10 @@ https://gentle-depths-67267.herokuapp.com/
 
 i. `DB_USERNAME`
 ii. `DB_PASSWORD`
-iii. `DB_PORT`
+iii. `DB_HOST`
+iv. `PORT`
 iv. `DB_DATABASE`
-v. `SESSION_SECRET`
+v. `SQL_PORT`
 
 ## 資料庫欄位
 ### Articles
@@ -102,10 +102,11 @@ v. `SESSION_SECRET`
 | Category    | VARCHAR  | 255    |         |     |                 |
 | Content     | TEXT     |        |         |     |                 |
 | is\_deleted | TINYINT  | 1      |         |     |                 |
+| UserId      | INT      | 11     |         |     |                 |
+| CategoryId      | INT      | 11     |         |     |                 |
+| imageUrl    | VARCHAR  |        |         |     |                 |
 | createdAt   | DATETIME |        |         |     |                 |
 | updatedAt   | DATETIME |        |         |     |                 |
-| UserId      | INT      | 11     |         |     |                 |
-| imageUrl    | VARCHAR  |        |         |     |                 |
 ### users
 | Field                | Type     | Length | Default            | Key | Extra           |
 |----------------------|----------|--------|--------------------|-----|-----------------|
@@ -113,3 +114,11 @@ v. `SESSION_SECRET`
 | Username             | VARCHAR  | 64     |                    |     |                 |            |
 | password             | VARCHAR  | 128    |                    |     |                 |
 | created\_at          | DATETIME |        | CURRENT\_TIMESTAMP |     |                 |
+
+### Categories
+| Field       | Type     | Length | Default | Key | Extra           |
+|-------------|----------|--------|---------|-----|-----------------|
+| id          | INT      | 11     |         | PRI | Auto\_increment |
+| name       | VARCHAR  | 255    |         |     |                 |
+| createdAt   | DATETIME |        |         |     |                 |
+| updatedAt   | DATETIME |        |         |     |                 |
