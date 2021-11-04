@@ -59,7 +59,8 @@
     background-size: cover;
   }
   &__time-block,
-  &__category-block {
+  &__category-block,
+  &__author-block {
     display: flex;
     @include breakpoint(mobile) {
       margin: 5px;
@@ -82,7 +83,7 @@
     font-family: $font-article-title;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-claamp: 1;
+    -webkit-line-clamp: 1;
     overflow: hidden;
     word-break: break-word;
     @include breakpoint(mobile) {
@@ -189,7 +190,8 @@
     flex: 1.5;
   }
   &__catelog-admin,
-  &__date-admin {
+  &__date-admin,
+  &__author-admin {
     display: flex;
   }
 
@@ -220,7 +222,7 @@ p {
   &_board {
     display: block;
     padding: 30px 24% 200px 24%;
-    @include breakpoint(mobile) {
+    @include breakpoint(pad) {
       padding: 5% 5% 100px 5%;
     }
   }
@@ -302,8 +304,11 @@ p {
   -webkit-line-clamp: 3;
   overflow: hidden;
   width: 100%;
-  @include breakpoint(mobile) {
-    -webkit-line-clamp: 1;
+  max-height: 8rem;
+  @include breakpoint(pad) {
+    -webkit-line-clamp: initial;
+    -webkit-box-orient: initial;
+    max-height: 6rem;
   }
 }
 

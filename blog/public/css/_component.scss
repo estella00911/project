@@ -25,18 +25,22 @@
 
 	&__post-style {
 		@include image-size(20px);
-
 	}
 		
 	&__clock { 
 		@include background-image($path-rel-function-icons,'clock.svg');
 	}
-
+	&__author { 
+		@include background-image($path-rel-function-icons,'author.svg');
+	}
 	&__folder {
 		@include background-image($path-rel-function-icons,'folder.svg');
+	}
+	&__folder,
+	&__author {
 		margin: 0 0 0 15px;
 		@include breakpoint(pc) {
-			margin:0;
+			margin: 0 0 0 10px;
 		}
 		@include breakpoint(pad) {
 			margin:0;

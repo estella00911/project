@@ -11,14 +11,20 @@ module.exports = {
       title: {
         type: Sequelize.STRING
       },
-      category: {
-        type: Sequelize.STRING
-      },
       content: {
         type: Sequelize.TEXT
       },
       is_deleted: {
         type: Sequelize.BOOLEAN
+      },
+      imageUrl: {
+        type: Sequelize.STRING
+      },
+      UserId: {
+        type: Sequelize.INTEGER
+      },
+      CategoryId: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -27,12 +33,6 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-      UserId: {
-        type: Sequelize.INTEGER
-      },
-      imageUrl: {
-        type: Sequelize.STRING
       }
     })
   },

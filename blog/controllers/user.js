@@ -16,9 +16,9 @@ const userController = {
     if (!username || !password) {
       req.flash('errorMessage', 'Please input missing fields')
       return res.redirect('back')
-    } else if (!req.session.username) {
-      req.flash('errorMessage', 'You are not authorized to register')
-      return res.redirect('back')
+    // } else if (!req.session.username) {
+    //   req.flash('errorMessage', 'You are not authorized to register')
+    //   return res.redirect('back')
     }
 
     bcrypt.hash(password, saltRounds, async(err, hash) => {
@@ -70,8 +70,9 @@ const userController = {
     })
   },
   logout: async(req, res) => {
-    await req.session.destroy()
-    await res.redirect('/')
+    return await req.session.destroy((err) => {
+      res.redirect('/')
+    })
   }
 }
 

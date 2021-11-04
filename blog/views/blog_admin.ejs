@@ -10,39 +10,41 @@
       <section class='section__posts wrapper font-Serif-TC'>
         <div class='article__lists'>
           <% for (let i = 0; i < article.length; i++) { %>
-          <div class='article__post'>
-            <div class='article__photo article__photo-admin' style="background-image:url('<%= article[i].imageUrl %>'"></div>
-            <div class='article__body article__body-admin'>
-              <div class='article__title article__title-admin'><%= article[i].title %></div>
-              <div class='article__info article__date-admin'>
-                <div class='icon__post-style icon__clock'></div>
-                <div class='article__date font-Merri'><%= moment(article[i].createdAt).format(shortDateFormat) %></div>
+            <div class='article__post'>
+              <div class='article__photo article__photo-admin' style="background-image:url('<%= article[i].imageUrl %>'">
               </div>
-              <div class='article__info article__catelog-admin'>
-                <div class='icon__post-style icon__folder'></div>
-                <div class='article__category'><%= article[i].category %></div>
+              <div class='article__body article__body-admin'>
+                <div class='article__title article__title-admin'><%= article[i].title %></div>
+                <div class='article__info article__date-admin'>
+                  <div class='icon__post-style icon__clock'></div>
+                  <div class='article__date font-Merri'><%= moment(article[i].createdAt).format(shortDateFormat) %></div>
+                </div>
+                <div class='article__info article__catelog-admin'>
+                  <div class='icon__post-style icon__folder'></div>
+                  <div class='article__category'><%= article[i].Category.name%></div>
+                </div>
               </div>
-            </div>
-            <% if (username == article[i].User.username) { %>
-            <div class='article__btn-position font-Merri'>
-              <a class='article__btn-style' href='update-article/<%= article[i].id %>'>
-                <div class='btn__edit'>
-                  <div class='icon__edit-style icon__edit'></div><span>Edit</span>
+              <% if (username == article[i].User.username) { %>
+                <div class='article__btn-position font-Merri'>
+                  <a class='article__btn-style' href='update-article/<%= article[i].id %>'>
+                    <div class='btn__edit'>
+                      <div class='icon__edit-style icon__edit'></div><span>Edit</span>
+                    </div>
+                  </a>
+                  <a class='article__btn-style' href='/delete/<%= article[i].id %>'>
+                    <div class='btn__delete'>
+                      <div class='icon__edit-style icon__delete'></div><span>Delete</span>
+                    </div>
+                  </a>
                 </div>
-              </a>
-              <a class='article__btn-style' href='/delete/<%= article[i].id %>'>
-                <div class='btn__delete'>
-                  <div class='icon__edit-style icon__delete'></div><span>Delete</span>
-                </div>
-              </a>
+              <% } %>
             </div>
-            <% } %>
-          </div>
-          <!-- 分隔線 -->
-          <div class='article__dividing-line'></div>
+            <!-- 分隔線 -->
+            <div class='article__dividing-line'></div>
           <% } %>
-        </div>
+          </div>
       </section>
+      <%- include('template/pagination') %>
     </main>
     <%- include('template/footer') %>
   </body>
