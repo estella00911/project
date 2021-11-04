@@ -12,11 +12,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   Article.init({
     title: DataTypes.STRING,
-    category: DataTypes.STRING,
     content: DataTypes.TEXT,
     is_deleted: DataTypes.BOOLEAN,
-    UserId: DataTypes.INTEGER,
     imageUrl: DataTypes.STRING,
+    UserId: DataTypes.INTEGER,
     CategoryId: DataTypes.INTEGER
   }, {
     sequelize,

@@ -17,11 +17,11 @@
         <input type='text' class='newPost__add-title' name='imageUrl' placeholder='image url'></input>
         <!-- for add new category-->
         <!-- <div class='newPost__category'> -->
-          <select name="category" class='newPost__select-option'>
+          <select name="CategoryId" class='newPost__select-option'>
               <option selected disabled>Category</option>
-            　<option value="旅遊日記">旅遊日記</option>
-            　<option value="生活札記">生活札記</option>
-            　<option value="美食饗宴">美食饗宴</option>
+              <% for (let i=0; i<totalCategories;i++) { %>
+                <option value="<%= Number(category[i].id) %>"><%= category[i].name %></option>
+              <% } %>
           </select>
         <!-- </div> -->
         <textarea name="content" id="editor" class='ckeditor5' placeholder="What's on your mind?">

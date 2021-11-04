@@ -83,7 +83,7 @@
     font-family: $font-article-title;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-claamp: 1;
+    -webkit-line-clamp: 1;
     overflow: hidden;
     word-break: break-word;
     @include breakpoint(mobile) {
@@ -190,7 +190,8 @@
     flex: 1.5;
   }
   &__catelog-admin,
-  &__date-admin {
+  &__date-admin,
+  &__author-admin {
     display: flex;
   }
 

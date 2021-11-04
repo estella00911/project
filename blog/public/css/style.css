@@ -76,6 +76,16 @@
 .icon__folder, .icon__author {
   margin: 0 0 0 15px;
 }
+@media only screen and (max-width: 768px) {
+  .icon__folder, .icon__author {
+    margin: 0;
+  }
+}
+@media only screen and (max-width: 568px) {
+  .icon__folder, .icon__author {
+    margin: 0;
+  }
+}
 .icon__edit {
   background-image: url("/public/images/icons_func/edit.svg");
   background-repeat: no-repeat;
@@ -424,7 +434,7 @@ ul li a {
   font-family: "Noto Sans", sans-serif;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-claamp: 1;
+  -webkit-line-clamp: 1;
   overflow: hidden;
   word-break: break-word;
 }
@@ -528,7 +538,7 @@ ul li a {
 .article__date-admin {
   flex: 1.5;
 }
-.article__catelog-admin, .article__date-admin {
+.article__catelog-admin, .article__date-admin, .article__author-admin {
   display: flex;
 }
 .article__photo-admin {

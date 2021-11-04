@@ -2,12 +2,12 @@ const db = require('../models')
 
 const { Article, User, Category } = db
 
-const ARTICLES_PER_PAGE = 5;
+const ARTICLES_PER_PAGE = 3;
 
 const blogController = {
   homePage: async(req, res) => {
     let currentPage = req.query.page == undefined ? 1 : Number(req.query.page);
-    offset = (parseInt(currentPage)-1)*5;
+    offset = (parseInt(currentPage)-1)*ARTICLES_PER_PAGE;
     const articles = await Article.findAndCountAll({
       offset,
       limit: ARTICLES_PER_PAGE,
@@ -16,32 +16,47 @@ const blogController = {
       },
       order: [['id', 'DESC']],
       include: [
-        { model: User },
-        { model: Category}
+        { model: User,
+          attributes:['id', 'username']
+        },
+        { model: Category,
+          attributes:['id', 'name']
+        }
       ]
     })
     let totalPosts = articles.count;
     let totalPage = Math.ceil(totalPosts/ARTICLES_PER_PAGE)
-    // console.log('totalPage:',totalPage);
-    // console.log('totalPosts:',totalPosts);
-    // console.log('qery.page:', req.query.page);
-    // console.log('var pagecurrent:', currentPage);
     let article = articles.rows;
-    console.log(JSON.stringify(article,null,4))
+    // console.log(JSON.stringify(article,null,4));
     res.render('index', {
       article,
       currentPage,
       totalPage
     })
   },
-  pageAdd: (req, res) => {
-    res.render('add_article')
+  pageAdd: async(req, res) => {
+    try {
+      let categories = await Category.findAndCountAll();
+      let totalCategories = categories.count;
+      let category = categories.rows;
+      console.log('typeof category',category[0].id);
+      console.log('category:',JSON.stringify(category,null,4));
+      res.render('add_article', {
+        totalCategories,
+        category
+      });
+    } catch(err) {
+      console.log('err:',err.toString());
+      return
+    }
+    // console.log(categories.rows);
+    
   },
   add: async(req, res) => {
-    const { title, category, content, imageUrl } = req.body
+    const { title, CategoryId, content, imageUrl } = req.body
     const { UserId, username } = req.session
 
-    if (!title || !category || !content || !imageUrl) {
+    if (!title || !CategoryId || !content || !imageUrl) {
       req.flash('errorMessage', 'Please input missing fields')
       return res.redirect('back')
     }
@@ -62,7 +77,7 @@ const blogController = {
     try {
       await Article.create({
         title,
-        category,
+        CategoryId,
         content,
         UserId,
         imageUrl
@@ -71,6 +86,7 @@ const blogController = {
           { model: User }
         ]
       })
+
       res.redirect('/')
     } catch (err) {
       req.flash('errorMessage', err.toString())
@@ -142,16 +158,23 @@ const blogController = {
   },
   list: async(req, res) => {
     let currentPage = req.query.page == undefined ? 1 : Number(req.query.page);
-    offset = (parseInt(currentPage)-1)*5;
+    offset = (parseInt(currentPage)-1)*ARTICLES_PER_PAGE;
     try {
       const articles = await Article.findAndCountAll({
         offset,
-       limit: ARTICLES_PER_PAGE,
+        limit: ARTICLES_PER_PAGE,
         where: {
           is_deleted: null
         },
         order: [['id', 'DESC']],
-        include: User
+        include: [
+          { model: User,
+            attributes:['id', 'username']
+          },
+          { model: Category,
+            attributes:['id', 'name']
+          }
+        ]
       })
       let totalPosts = articles.count;
       let totalPage = Math.ceil(totalPosts/ARTICLES_PER_PAGE);
@@ -166,16 +189,29 @@ const blogController = {
     }
   },
   blogAdmin: async(req, res) => {
+    let currentPage = req.query.page == undefined ? 1 : Number(req.query.page);  
     try {
-      const article = await Article.findAll({
+      const articles = await Article.findAndCountAll({
         where: {
           is_deleted: null
         },
         order: [['id', 'DESC']],
-        include: User
+        include: [
+          { model: User,
+            attributes:['id', 'username']
+          },
+          { model: Category,
+            attributes:['id', 'name']
+          }
+        ]
       })
+      let totalPosts = articles.count;
+      let totalPage = Math.ceil(totalPosts/ARTICLES_PER_PAGE);
+      let article = articles.rows;
       res.render('blog_admin', {
-        article
+        article,
+        currentPage,
+        totalPage
       })
     } catch (err) {
       console.log(err.toString())

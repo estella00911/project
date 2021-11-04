@@ -42,12 +42,12 @@
 		@include breakpoint(pc) {
 			margin: 0 0 0 10px;
 		}
-		// @include breakpoint(pad) {
-		// 	margin:0;
-		// }
-		// @include breakpoint(mobile) {
-		// 	margin:0;
-		// }
+		@include breakpoint(pad) {
+			margin:0;
+		}
+		@include breakpoint(mobile) {
+			margin:0;
+		}
 	}
 		
 	&__edit {
