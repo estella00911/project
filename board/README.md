@@ -1,63 +1,70 @@
 # Jean's Project
 
-## 留言板：
+## PHP Board
 http://project.estella00911.tw/board/index.php
-### 描述
-利用 PHP 及 MySQL 製作一個簡易的留言板，其中包含 PHP 內建的 Session 登入機制、修改會員的留言權限、常見的資安漏洞。
 
-### 功能
-- 會員：
-會員可以透過註冊及登入留言板後，看見留言內容，另外還可以可以新增留言、編輯暱稱，且編輯與刪除自己的留言，。
-- 管理員：
-可以新增留言，也可以編輯及刪除其他會員的留言，另外還可以進入後台，修改會員的留言權限（可以發布留言以及被停權不可以發表留言）。
+### Description
+Creating a simple message board using PHP and MySQL, including PHP's built-in session-based login system, allowing member permission modification, and addressing common security vulnerabilities.
 
-### 運行環境
-* 後端語言：PHP
-* 資料庫：MySQL5.7.35
-* 上傳至 server 時，使用 FileZilla（FTP）
-* 設定、查看、管理資料庫：phpMyAdmin、Sequel Pro
-* Apache server（網頁伺服器）
-### Demo
+### Functionality
+
+- Members:
+Members can register and log in to the message board to view message content.
+They can post new messages, edit their display name, and edit or delete their own messages.
+Administrators:
+
+- Administrators can post new messages.
+They have the authority to edit and delete messages from other members.
+Additionally, administrators can access the backend to modify member message permissions (allowing or suspending message posting privileges).
+
+### Environment
+* Backend Language: PHP
+* Database: MySQL 5.7.35
+* Upload to Server: FileZilla (FTP)
+* Database Configuration and Management: phpMyAdmin, Sequel Pro
+* Web Server: Apache
+
+### Screenshots of Web Application: PHP Board
 ![](https://github.com/estella00911/project/blob/main/src_demo/board/1_fisrtPage.gif?raw=true)
 #### RWD
 ![](https://github.com/estella00911/project/blob/main/src_demo/board/10_RWD.gif?raw=true)
-#### 註冊
+#### Register Page
 ![](https://github.com/estella00911/project/blob/main/src_demo/board/2_register.gif?raw=true)
-#### 登入
+#### Login Page
 ![](https://github.com/estella00911/project/blob/main/src_demo/board/3_login.gif?raw=true)
-#### 會員編輯功能——編輯暱稱、發布留言
+####Member Editing Function — Edit Nickname and Post Comments
 ![](https://github.com/estella00911/project/blob/main/src_demo/board/4_editNickAndAddComments.gif?raw=true)
-#### 會員編輯功能——僅能編輯自己的留言
-會員僅可編輯自己的留言，不能隨意編輯他人留言
+#### Member Editing Function — Editing Only Own Comments
+Members can only edit their own comments and are not allowed to edit others' comments freely.
 ![](https://github.com/estella00911/project/blob/main/src_demo/board/5_editOwnNoOthers.gif?raw=true)
 
-#### 會員刪除功能——僅能刪除自己的留言
-會員僅可刪除自己的留言，不可以任意刪除他人留言。
+#### Member Deletion Function — Deleting Only Own Comments
+Members can only delete their own comments and are not allowed to delete others' comments freely.
 ![](https://github.com/estella00911/project/blob/main/src_demo/board/6_deleteOwnNoOthers.gif?raw=true)
-#### 管理員功能——更改留言的權限
-管理員將會員 abc 權限改為不能發布留言。
+#### Administrator Function — Modifying Comment Permissions
+The administrator will change member ABC's permissions to prevent them from posting comments.
 ![](https://github.com/estella00911/project/blob/main/src_demo/board/7_adminLoginAndSuspendAbc.gif?raw=true)
 
-#### 被留言停權的使用者 abc
-被留言停權的使用者 abc 不能發布新留言，但可以編輯與刪除舊的留言。
+#### User ABC, Suspended from Posting Comments
+User ABC, who has been suspended from posting comments, cannot create new comments but can still edit and delete their existing comments
 ![](https://github.com/estella00911/project/blob/main/src_demo/board/8_suspendABCandAddEditDelete.gif?raw=true)
-#### 管理員功能——可以任意編輯與刪除會員的留言
+#### Administrator Function — Editing and Deleting Members' Comments at Will
 ![](https://github.com/estella00911/project/blob/main/src_demo/board/9_adminCanEditDeleteOtherComment.gif?raw=true)
 
-### 技術
-1. `PHP` 內建 `Session` 機制
-2. 使用 `MySQL`
- - 在留言上使用關聯式資料庫可以找到 user（`left join`）
- - 使用 `limit`、`offset` 的分頁概念 
-4. 使用 `media query` 實現 RWD
-5. 在 `Amazon Web Services (AWS) EC2` 的 `Ubuntu server` 建置 `LAMP` 環境，然後用 `FileZilla` 上傳檔案（`FTP`） 
+### Technologies
+1. `PHP` with built-in `Session` mechanism.
+2. Utilizing `MySQL`:
+ - Employing a relational database for messages with the ability to associate messages with users (using left join)
+ - Implementing pagination concepts using `limit` and `offset`
+4. Implementing `Responsive Web Design (RWD)` using `media queries`.
+5. Setting up a `LAMP` environment on `Amazon Web Services (AWS) EC2` with `Ubuntu server` and uploading files using `FileZilla (FTP)`.
 
 ### 權限
-| 身份      | 帳號    | 密碼      | 敘述|
-|---------|-------|---------|---------|
-| 管理員     | admin | admin01 |可以任意編輯、刪除留言，並可以修改會員發布留言的權限|
-| 遭停權的使用者 | aaa   | aaa     |被停權的使用者，無法發布新的留言|
-| 一般會員    | qqq   | qqq     |可以新增、編輯、修改留言|
+| Role          | Username | Password | Description                                          |
+|---------------|----------|----------|------------------------------------------------------|
+| Administrator | admin    | admin01  | Can edit and delete any message, and modify member message posting permissions. |
+| Suspended User | aaa      | aaa      | A suspended user who cannot post new messages.      |
+| Regular Member | qqq      | qqq      | Can add, edit, and delete messages.                  |
 
 ### 資料庫欄位
 #### users
@@ -69,7 +76,7 @@ http://project.estella00911.tw/board/index.php
 | password             | VARCHAR  | 128    |                    |     |                 |
 | created\_at          | DATETIME |        | CURRENT\_TIMESTAMP |     |                 |
 | status               | VARCHAR  | 64     | User               |     |                 |
-| Cannot\_add\_comment | TINYINT  | 1      | 0                  |     |   1（= `True`, 意即不能新增留言）<br> 0（= `false`，可新增留言）              |
+| Cannot\_add\_comment | TINYINT  | 1      | 0                  |     |  1 (True, indicating the user cannot post new messages)<br>0 (False, indicating the user can post new messages)  |
 #### comments
 
 | Field       | Type     | Length | Allow null | Key | Default | Extra           |
@@ -83,19 +90,19 @@ http://project.estella00911.tw/board/index.php
 ### 檔案介紹
 ```
 
-|- index.php：留言版主頁
-|- login.php：登入頁面
-|- register.php：註冊頁面
-|- logout.php：處理登出功能
-|- handle_add_comment.php：處理新增留言的功能
-|- handle_delete_comment.php：處理刪除留言的功能
-|- handle_update_comment.php：處理修改留言的功能
-|- handle_update_user.php：處理編輯暱稱的功能
-|- handle_register.php：處理註冊的功能
-|- handle_login.php：處理登入的功能
-|- handle_suspend.php：處理遭停權的使用者功能
-|- index_admin.php：後台管理使用者權限
-|- style.css：CSS file
-|- resources：放置圖片的資料夾。
+|- index.php: The main page of the message board.
+|- login.php: The login page.
+|- register.php: The registration page.
+|- logout.php: The page for handling logout functionality.
+|- handle_add_comment.php: Handles the functionality for adding new comments.
+|- handle_delete_comment.php: Handles the functionality for deleting comments.
+|- handle_update_comment.php: Handles the functionality for updating comments.
+|- handle_update_user.php: Handles the functionality for editing display names.
+|- handle_register.php: Handles the functionality for user registration.
+|- handle_login.php: Handles the functionality for user login.
+|- handle_suspend.php: Handles the functionality for suspending users.
+|- index_admin.php: The backend for managing user permissions.
+|- style.css: The CSS file.
+|- resources: A folder for storing images.
 ```
 <hr>
