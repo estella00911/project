@@ -1,14 +1,12 @@
 # Jean's Project
 
-## 作品集
-### 1. PHP 留言板
-- [留言板 Demo](http://project.estella00911.tw/board/index.php)
-- [專案](https://github.com/estella00911/project/tree/main/board)
-以 AWS EC2 部署，以 PHP 寫後端，使用 MySQL 關聯式資料庫，連結使用者與留言內容，使用 Session 製作登入功能，並以 Get Method 的方式，在 query string 上增加 errCode 做後端的錯誤訊息提示。
+## 1. PHP Board
+- [Board Demo](http://project.estella00911.tw/board/index.php)
+- [Repository on the GitHub](https://github.com/estella00911/project/tree/main/board)
+Deploy on `AWS EC2`, write the backend in `PHP`, use a `MySQL` relational database to link users and message content, create a login functionality using sessions, and, using the `GET` method, add errCode to the query string for backend error message notifications
 
 
-### 2. 部落格
-- [部落格 Demo](https://gentle-depths-67267.herokuapp.com/)
-- [專案](https://github.com/estella00911/project/tree/main/blog)
-正在開發中，希望可以做出紀錄自己學習軌跡的部落格。
-使用 MVC 架構以 Node.js 框架 —— Express 寫後端，MySQL 資料庫則使用 ORM 的 Sequelize，另使用 CDN 的 CKEditor 5 編輯器來新增、編輯文章。
+## 2. Blog
+- [Blog Demo](https://gentle-depths-67267.herokuapp.com/)
+- [Repository on the GitHub](https://github.com/estella00911/project/tree/main/blog)
+I'm using the MVC architecture with the Node.js framework - Express for the backend. I'm utilizing the Sequelize ORM for the MySQL database, and I'm incorporating the CKEditor 5 editor from a CDN to add and edit articles.

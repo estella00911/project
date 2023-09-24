@@ -27,9 +27,9 @@
           <!-- <div class='newPost__category'> -->
             <select name="category" class='newPost__select-option'>
                 <option selected disabled class='options'>Category</option>
-              　<option value="旅遊日記" <% if (article.category == '旅遊日記') {%><%= "selected" %><%}%>>旅遊日記</option>
-              　<option value="生活札記"<% if (article.category == '生活札記') {%><%= "selected" %><%}%>>生活札記</option>
-              　<option value="美食饗宴"<% if (article.category == '美食饗宴') {%><%= "selected" %><%}%>>美食饗宴</option>
+              　<option value="Life" <% if (article.category == 'Life') {%><%= "selected" %><%}%>>Life</option>
+              　<option value="Food"<% if (article.category == 'Food') {%><%= "selected" %><%}%>>Food</option>
+              　<option value="Travel"<% if (article.category == 'Travel') {%><%= "selected" %><%}%>>Travel</option>
             </select>
           <!-- </div> -->
           <textarea name="content" id="editor" class='ckeditor5' value=""><%- article.content %></textarea>
