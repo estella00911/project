@@ -60,35 +60,52 @@ const blogController = {
       req.flash('errorMessage', 'Please input missing fields')
       return res.redirect('back')
     }
+  //  / const hasUser = 0;
+    // console.log("UserId"+ UserId);
+    // console.log("username"+ username);
+    // try {
+    //   const user = await User.findOne({
+    //     where: {
+    //       id: UserId
+    //     }
+    //   })
+    //   console.log("user.rows" +user.id);
+    //   console.log("user.rows" +user.UserId);
+    //   hasUser = 1;
+    // } catch (err) {
+    //   console.log('not found!') // 沒有登入，也就是 !user 會跳出的錯誤訊息
+    //   req.flash('errorMessage', 'Please login before add a new post') // req.session.username 與資料庫 User 不符
+    //   res.redirect('back')
+    //   return
+    // }
+    const user = await User.findOne({
+      where: {
+        username
+      }
+    })
 
-    try {
-      await User.findOne({
-        where: {
-          username
-        }
-      })
-    } catch (err) {
-      console.log('not found!') // 沒有登入，也就是 !user 會跳出的錯誤訊息
-      req.flash('errorMessage', 'Please login before add a new post') // req.session.username 與資料庫 User 不符
-      res.redirect('back')
-      return
+    if (!user) {
+      req.flash('errorMessage', 'the username provided is not registered')
+      return res.redirect('back')
     }
 
     try {
-      await Article.create({
-        title,
-        CategoryId,
-        content,
-        UserId,
-        imageUrl
-      }, {
-        include: [
-          { model: User,
-            attributes:['id', 'username']
-          }
-        ]
-      })
-
+        const article = await Article.create({
+          title,
+          CategoryId,
+          content,
+          UserId,
+          imageUrl, 
+          createdAt: Date.now(),
+          updatedAt: Date.now()
+        }, {
+          include: [
+            { 
+              model: User,
+              attributes:['id', 'username']
+            }
+          ]
+        })
       res.redirect('/')
     } catch (err) {
       req.flash('errorMessage', err.toString())
