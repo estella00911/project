@@ -4,7 +4,7 @@
 I'm using the MVC architecture with the Node.js framework - Express for the backend. I'm utilizing the Sequelize ORM for the MySQL database, and I'm incorporating the CKEditor 5 editor from a CDN to add and edit articles.
 
 - [Screenshots of the blog](#screenshots-of-web-application-blog)
-- [Demo](https://gentle-depths-67267.herokuapp.gcom/)
+- [Demo](https://gentle-depths-67267.herokuapp.com/)
 - [Repository](https://github.com/estella00911/project/tree/main/blog)
 - Problem being addressed:
     * [ ] Can not edit/delete an article in the Archive page
